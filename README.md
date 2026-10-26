@@ -2,7 +2,7 @@
 
 Web app for a GB energy utility's day-ahead buying team. It shows (1) the latest national wind forecast available when the day-ahead decision must be made, and (2) how accurate those forecasts have been, in MW.
 
-**Live app:** `<PASTE VERCEL URL HERE>`
+**Live app:** `https://kjhwr-eight-xi.vercel.app`
 
 > **AI tools disclosure:** Claude (Anthropic) was used to assist in building this project.
 
