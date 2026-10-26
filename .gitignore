@@ -102,7 +102,6 @@ frontend/.vite-cache/
 # Data files (keep the data/ folder structure but not the raw data blobs)
 # =============================================================================
 
-data/*.csv
 data/*.json
 data/*.parquet
 data/*.feather
