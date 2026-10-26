@@ -2,7 +2,7 @@
 
 Web app for a GB energy utility's day-ahead buying team. It shows (1) the latest national wind forecast available when the day-ahead decision must be made, and (2) how accurate those forecasts have been, in MW.
 
-**Live app:** `<PASTE VERCEL/HEROKU URL HERE>`
+**Live app:** `<PASTE VERCEL URL HERE>`
 
 > **AI tools disclosure:** Claude (Anthropic) was used to assist in building this project.
 
@@ -28,7 +28,8 @@ backend/
 frontend/              React (Vite + Recharts)
 data/                  actuals.csv, forecasts.csv
 docs/ARCHITECTURE.md   design notes
-Dockerfile, docker-compose.yml, heroku.yml
+api/index.py, vercel.json    Vercel deployment
+Dockerfile, docker-compose.yml   optional local container
 ```
 
 ## Run it
@@ -55,10 +56,11 @@ cd frontend && npm install && npm run dev            # UI on :5173
 ## API
 `/api/config`, `/api/forecast?date=YYYY-MM-DD`, `/api/accuracy/summary`, `/api/accuracy/by-hour`, `/api/accuracy/by-horizon`, `/api/accuracy/daily`
 
-## Deploy (Heroku, container)
-```bash
-heroku create
-heroku stack:set container
-git push heroku main
-```
-(Alternative: deploy `frontend/` to Vercel with `VITE_API_URL` pointing at the hosted API.)
+## Deploy (Vercel, free)
+One Vercel project serves both the React build and the Python API (`api/index.py`).
+1. Push this repo to GitHub (include `data/*.csv`).
+2. On vercel.com: **Add New > Project**, import the repo, leave the root directory as `/`, click **Deploy**
+   (`vercel.json` sets the build command, output folder and API routing).
+3. Open `https://<project>.vercel.app/api/health` (should return `{"status":"ok"}`), then the main URL.
+
+Docker (`docker compose up --build`) is provided for local/portable runs.

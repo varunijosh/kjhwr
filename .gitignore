@@ -1,7 +1,7 @@
 # =============================================================================
 # Python / Backend (FastAPI + uvicorn + pandas + pytest)
 # =============================================================================
-
+.venv
 # Byte-compiled / optimised / DLL files
 __pycache__/
 *.py[cod]
